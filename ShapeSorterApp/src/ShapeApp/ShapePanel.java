@@ -10,42 +10,57 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+import java.util.List;
+import java.util.ArrayList;
 
 public class ShapePanel extends JPanel implements ActionListener{
-	int count = 1;
-	private JLabel label;
-	private JFrame frame;
 	
 	public ShapePanel() {
-		frame = new JFrame("Display a rectangle");
-		label = new JLabel("number of clicks: 0");
-		JButton button = new JButton("Click Me");
-		button.addActionListener(this);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(this);
-		this.add(button);
-		this.add(label);
-		frame.setSize(360, 300);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
 	}
+	
+	private List<Shape> createShapes(){
+		List<Shape> shapeList = new ArrayList<Shape>();
+		
+		Color myColor1 = new Color(231, 151, 44);
+		Shape s1 = ShapeFactory.getShapeInstance("Rectangle", 50, 150, 44, 48, myColor1);
+		shapeList.add(s1);
+		
+		Color myColor2 = new Color(131, 151, 44);
+		Shape s2= ShapeFactory.getShapeInstance("Rectangle", 150, 150, 72, 45, myColor2);
+		shapeList.add(s2);
+		
+		return shapeList;
+	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.setColor(new Color(131, 21, 1));//
-		g2d.fillRect(250, 195, 90, 60);//
+		
+		List<Shape> shapes = createShapes();
+		for (Shape s: shapes) {
+			g2d.setColor(s.getShapeColor());
+	    	s.drawShape(g2d);
+		}
 	} 
 	
 	public static void main(String[] args) {
-		new ShapePanel();
-			
+		ShapePanel panel = new ShapePanel();
+		JFrame frame = new JFrame("Display a rectangle");
+		JLabel label = new JLabel("number of clicks: 0");
+		JButton button = new JButton("");
+		button.addActionListener(panel);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.add(panel);
+		panel.add(button);
+		panel.add(label);
+		frame.setSize(360, 300);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 		}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		count++;
-		label.setText("Number of clicks: " + count);
+
 	}
 	
 	
