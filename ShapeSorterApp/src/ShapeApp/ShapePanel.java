@@ -37,9 +37,14 @@ public class ShapePanel extends JPanel implements ActionListener{
 		Graphics2D g2d = (Graphics2D) g;
 		
 		List<Shape> shapes = createShapes();
+		
+		int x = 0;
+		int y = 0;
 		for (Shape s: shapes) {
 			g2d.setColor(s.getShapeColor());
-	    	s.drawShape(g2d);
+			
+	    	s.drawShape(g2d, x, y);
+	    	x += 50;
 		}
 	} 
 	

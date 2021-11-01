@@ -50,6 +50,6 @@ abstract class Shape implements Comparable <Shape>{
 		this.shapeColor = shapeColor;
 	}
 
-	public void drawShape(Graphics form) {}
+	public void drawShape(Graphics form, int upperX, int UpperY) {}
 
 }
