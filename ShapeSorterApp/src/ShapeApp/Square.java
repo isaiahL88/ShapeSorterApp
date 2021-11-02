@@ -14,6 +14,7 @@ public class Square extends Shape{
 	public void drawShape(Graphics form, int upperXNew, int upperYNew) {
 		form.fillRect(upperXNew, upperYNew, width, height);
 	}
+	
 	public int compareTo(Shape s){
 		return (this.width*this.height) - (s.getWidth() * s.getHeight());
 	}

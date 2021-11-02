@@ -39,6 +39,18 @@ public class ShapePanel extends JPanel implements ActionListener{
 		Shape s1 = ShapeFactory.getShapeInstance("Rectangle", 50, 150, 44, 48, myColor1);
 		shapeList.add(s1);
 		
+		Color myColor4 = new Color(30, 40, 100);
+		Shape s4 = ShapeFactory.getShapeInstance("Circle", 50, 30, 50, 50, myColor4);
+		shapeList.add(s4);
+		
+		Color myColor5 = new Color(22,8,200);
+		Shape s5 = ShapeFactory.getShapeInstance("Square", 50, 50, 50, 50, myColor5);
+		shapeList.add(s5);
+		
+		Color myColor6 = new Color(200, 3, 2);
+		Shape s6 = ShapeFactory.getShapeInstance("Circle", 50, 50, 80, 80, myColor6);
+		shapeList.add(s6);
+		
 		Color myColor2 = new Color(131, 151, 44);
 		Shape s2= ShapeFactory.getShapeInstance("Rectangle", 150, 150, 72, 45, myColor2);
 		shapeList.add(s2);
@@ -68,7 +80,7 @@ public class ShapePanel extends JPanel implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		panel.add(label);
-		frame.setSize(360, 300);
+		frame.setSize(600, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		}
