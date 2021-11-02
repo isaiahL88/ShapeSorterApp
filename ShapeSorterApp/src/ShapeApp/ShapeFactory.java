@@ -8,6 +8,10 @@ public class ShapeFactory {
 		if(shape.equals("Rectangle")) {
 			newShape = new Rectangle(upperX, upperY, height, width, color);
 			return newShape;
+		}else if(shape.equals("square") && height == width){
+			return new Square(upperX, upperY, height, width, color);
+		}else if(shape.equals("circle") && height == width) {
+			return new Circle(upperX, upperY, height, width, color);
 		}else {
 			return null;
 		}
